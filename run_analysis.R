@@ -46,4 +46,4 @@ summary <- summarise_each(fullSet, funs(mean))
 names(summary)<- gsub(pattern = "\\.+", replacement = "\\.", x = tolower(make.names(names(summary))))
 
 #done, flushing out data
-write.table(summary, "output.txt")
+write.table(summary, "output.txt", row.name=FALSE)
