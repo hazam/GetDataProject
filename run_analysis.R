@@ -42,5 +42,8 @@ fullSet <- group_by(fullSet, Subject, Activity)
 #compute for each column the mean (summarise takes care of doing it group-wise)
 summary <- summarise_each(fullSet, funs(mean))
 
-#done, flushinh out data
+#fixing the column names a bit
+names(summary)<- gsub(pattern = "\\.+", replacement = "\\.", x = tolower(make.names(names(summary))))
+
+#done, flushing out data
 write.table(summary, "output.txt")
